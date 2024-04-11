@@ -3,5 +3,10 @@ npm install -g @nestjs/cli
 nest new nestjs-example
 npm run start:dev
 
-nest generate module projects
-nest generate mo auth
+nest g mo projects
+nest g mo auth
+nest g mo users
+nest g co hello
+nest g co projects
+nest g co users
+nest g co auth
