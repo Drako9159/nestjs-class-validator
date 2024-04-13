@@ -10,3 +10,6 @@ nest g co hello
 nest g co projects
 nest g co users
 nest g co auth
+nest g s users
+nest g s projects
+nest g s auth
