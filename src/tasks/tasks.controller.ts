@@ -1,35 +1,52 @@
-import { Controller, Delete, Get, Patch, Post, Put } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Patch,
+  Post,
+  Put,
+  Query,
+} from '@nestjs/common';
 import { TasksService } from './tasks.service';
+import { CreateTaskDto } from './dto/create-task.dto';
+import { UpdateTaskDto } from './dto/update-task.dto';
 
-@Controller({})
+@Controller('/tasks')
 export class TasksController {
   tasksService: TasksService;
   constructor(tasksService: TasksService) {
     this.tasksService = tasksService;
   }
 
-  @Get('/tasks')
-  getAllTasks() {
+  @Get()
+  getAllTasks(@Query() query: any) {
     return this.tasksService.getTasks();
   }
 
-  @Post('/tasks')
-  createTask() {
-    return 'Creating task';
+  @Get('/:id')
+  getTask(@Param('id') id: string) {
+    return this.tasksService.getTask(parseInt(id));
   }
 
-  @Put('/tasks')
-  updateTask() {
-    return 'Updating Task';
+  @Post()
+  createTask(@Body() task: CreateTaskDto) {
+    return this.tasksService.createTask(task);
   }
 
-  @Delete('/tasks')
+  @Put()
+  updateTask(@Body() task: UpdateTaskDto) {
+    return this.tasksService.updateTask(task);
+  }
+
+  @Delete()
   deleteTask() {
-    return 'Deleting Task';
+    return this.tasksService.deleteTask();
   }
 
-  @Patch('/tasks')
+  @Patch()
   updateTaskStatus() {
-    return 'Updating Status';
+    return this.tasksService.updateTaskStatus();
   }
 }
