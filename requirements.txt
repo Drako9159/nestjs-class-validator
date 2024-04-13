@@ -17,3 +17,8 @@ nest g s auth
 npm install --save class-validator class-transformer
 
 nest g pipe hello/pipes/validateUser
+
+nest g guard hello/guards/auth
+
+nest g middleware users/logger
+nest g middleware users/auth
