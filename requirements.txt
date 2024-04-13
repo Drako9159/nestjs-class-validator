@@ -13,3 +13,7 @@ nest g co auth
 nest g s users
 nest g s projects
 nest g s auth
+
+npm install --save class-validator class-transformer
+
+nest g pipe hello/pipes/validateUser
