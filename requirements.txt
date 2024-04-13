@@ -22,3 +22,12 @@ nest g guard hello/guards/auth
 
 nest g middleware users/logger
 nest g middleware users/auth
+
+nest g resource payments
+
+npm install prisma --save-dev
+npx prisma init
+
+npx prisma migrate dev --name init
+
+npm install --save @nestjs/swagger
